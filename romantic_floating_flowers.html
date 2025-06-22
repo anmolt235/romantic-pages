@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>For My Love</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #ffd6ec, #fff);
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+      color: #5e2b47;
+      height: 100vh;
+      position: relative;
+    }
+
+    .nickname {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2.5rem;
+      color: #ff66b2;
+      font-weight: bold;
+      text-shadow: 0 0 10px #ff99cc, 0 0 20px #ff66cc, 0 0 30px #ff3399;
+      z-index: 10;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .message-box {
+      position: absolute;
+      top: 55%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(255, 255, 255, 0.95);
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      max-width: 500px;
+      z-index: 5;
+      line-height: 1.6;
+      font-size: 1.15rem;
+    }
+
+    .message-box h1 {
+      margin-bottom: 25px;
+      font-size: 2.5rem;
+      color: #c0397d;
+    }
+
+    .floater {
+      position: absolute;
+      font-size: 2rem;
+      animation: floatDown linear infinite;
+      z-index: 1;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    @keyframes floatDown {
+      0% { transform: translateY(-10vh); opacity: 0.8; }
+      100% { transform: translateY(110vh); opacity: 0; }
+    }
+
+    .sparkle {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.8;
+      box-shadow: 0 0 6px white;
+      animation: twinkle 2s infinite ease-in-out;
+      z-index: 1;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; transform: scale(0.8); }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+
+    .shooting-star {
+      position: absolute;
+      width: 2px;
+      height: 80px;
+      background: linear-gradient(white, transparent);
+      transform: rotate(-45deg);
+      opacity: 0;
+      animation: shoot 5s infinite ease-in-out;
+      z-index: 2;
+    }
+
+    @keyframes shoot {
+      0% { left: -10vw; top: -10vh; opacity: 0; }
+      10% { opacity: 1; }
+      50% { left: 110vw; top: 110vh; opacity: 0; }
+      100% { opacity: 0; }
+    }
+
+    audio {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 10;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      background: rgba(255,255,255,0.8);
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="nickname">My Baby Girl 💖</div>
+
+  <div class="message-box">
+    <h1>To the Only One Who Has My Heart 💗</h1>
+    <p>
+      Sometimes I wonder what I did to deserve someone like you — someone so soft, so kind, so endlessly beautiful inside and out. You don’t just make my heart beat faster, you make it feel safe. When I look at you, I see my home. I see a future where I can be completely myself — broken or whole — and still be loved beyond words. You are the calm in my chaos, the warmth in my winter, the light that never fades.
+    </p>
+    <p>
+      I promise you — no matter how this world spins, I will never leave you. Even if the sky falls, even if I lose everything else, I will never stop choosing you. You’re not just someone I love… you’re the part of me I never want to lose. If you ever walked away, you wouldn’t just take your footsteps — you’d take my soul with you. My love, if I lose you, I lose the only reason I believe in love.
+    </p>
+    <p>
+      I don't need a perfect life. I just need <em>you</em> in it. Through every storm, through every silent night, I’ll be there — holding your hand, fighting for us. You’re my once-in-a-lifetime kind of love, and I swear on everything that I will protect this love until my last breath. I don’t just love you — I need you, with every fiber of who I am.
+    </p>
+  </div>
+
+  <audio autoplay loop controls>
+    <source src="music.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    const emojis = ['🌷','🌷','🌷','🌷','🌸','💐','💖','🦋'];
+
+    for (let i = 0; i < 80; i++) {
+      const floater = document.createElement("div");
+      floater.className = "floater";
+      floater.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      floater.style.left = Math.random() * 100 + "vw";
+      floater.style.top = -10 + "vh";
+      floater.style.animationDuration = (8 + Math.random() * 5) + "s";
+      document.body.appendChild(floater);
+    }
+
+    for (let i = 0; i < 50; i++) {
+      const sparkle = document.createElement("div");
+      sparkle.className = "sparkle";
+      sparkle.style.left = Math.random() * 100 + "vw";
+      sparkle.style.top = Math.random() * 100 + "vh";
+      document.body.appendChild(sparkle);
+    }
+
+    const shootingStar = document.createElement("div");
+    shootingStar.className = "shooting-star";
+    document.body.appendChild(shootingStar);
+  </script>
+</body>
+</html>
